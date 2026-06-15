@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YONG KAI HAN | Mobile Application Development e-Portfolio</title>
-    <!-- Google Fonts for Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -379,27 +378,6 @@
             transform: translateY(-2px);
         }
 
-        /* Typography & List Refinements */
-        ul {
-            list-style-position: inside;
-            color: var(--text-muted);
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        li a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        li a:hover {
-            text-decoration: underline;
-            color: #60a5fa;
-        }
-
         /* Footer Custom Framework */
         footer {
             text-align: center;
@@ -413,10 +391,9 @@
 </head>
 <body>
 
-    <!-- Sticky Navigation Layout -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="nav-logo">YONG KAI HAN<span>.MAD</span></a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="nav-logo">YONG KAI HAN<span>.MAD</span></a>
             <ul class="nav-links">
                 <li><a href="#profile">Profile</a></li>
                 <li><a href="#labs">Labs</a></li>
@@ -430,13 +407,17 @@
 
     <div class="container">
 
-        <!-- 1. Student Profile Section -->
         <section id="profile">
             <h2>1. Student Profile</h2>
             <div class="profile-grid">
                 <div class="meta-card">
                     <table class="meta-table">
-                        <tr><td>Name</td><td>YONG KAI HAN</td></tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" style="color: var(--text-main); text-decoration: none;">YONG KAI HAN</a>
+                            </td>
+                        </tr>
                         <tr><td>Matric No</td><td>A220988</td></tr>
                         <tr><td>Programme</td><td>2DipSE</td></tr>
                         <tr><td>Instructor</td><td>Mr Nelson Sana</td></tr>
@@ -457,12 +438,9 @@
             </div>
         </section>
 
-        <!-- 2. Lab Submissions Section -->
         <section id="labs">
             <h2>2. Lab Submissions</h2>
             <div class="labs-grid">
-                
-                <!-- Lab 1 -->
                 <div class="card">
                     <div>
                         <h3>Lab 1 — UI Development</h3>
@@ -478,7 +456,6 @@
                     </div>
                 </div>
 
-                <!-- Lab 2 -->
                 <div class="card">
                     <div>
                         <h3>Lab 2 — Interaction</h3>
@@ -494,7 +471,6 @@
                     </div>
                 </div>
 
-                <!-- Lab 3 -->
                 <div class="card">
                     <div>
                         <h3>Lab 3 — Material Design</h3>
@@ -510,7 +486,6 @@
                     </div>
                 </div>
 
-                <!-- Lab 4 -->
                 <div class="card">
                     <div>
                         <h3>Lab 4 — Navigation</h3>
@@ -526,7 +501,6 @@
                     </div>
                 </div>
 
-                <!-- Lab 5 -->
                 <div class="card">
                     <div>
                         <h3>Lab 5 — Room Local DB</h3>
@@ -541,15 +515,12 @@
                         <a href="https://youtu.be/QpAc8Yg5vAE" target="_blank" class="btn btn-secondary" style="display:flex; margin-top:16px; width:100%;">Watch on YouTube</a>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- 3. Project Submissions Section -->
         <section id="projects">
             <h2>3. Project Submissions</h2>
             
-            <!-- Project 1 -->
             <div class="project-block">
                 <h3>Project 1 (Lab 4 Foundations + Functional Upgrades)</h3>
                 <p><strong>Problem Statement:</strong> Traditional employment frameworks lack immediate offline-first flexibility and robust screen flow synchronization, which creates structural friction for users looking for clean, reliable navigation paths while assessing employment profiles or processing application criteria on the move.</p>
@@ -569,7 +540,6 @@
                 </div>
             </div>
 
-            <!-- Project 2 -->
             <div class="project-block" style="border-left-color: var(--accent);">
                 <h3>Project 2: JobBridge Ecosystem (Lab 5 + Cloud + Sensors + APIs)</h3>
                 <p><strong>Problem Statement:</strong> Economically marginalized individuals face structural barriers when looking for low-threshold employment. JobBridge resolves this challenge by connecting users with active community jobs, leveraging hardware sensor automations for ease of access, and utilizing real-time cloud data layers to match available skills with local work openings immediately.</p>
@@ -590,7 +560,6 @@
             </div>
         </section>
 
-        <!-- 4. Reflection & Learning Journey Section -->
         <section id="reflection">
             <h2>4. Reflection & Learning Journey</h2>
             <p><strong>Growth Arc (Lab 1 to Project 2):</strong> My engineering methodology progressed dramatically from simple UI element grouping in Lab 1 into designing deep local data layers and asynchronous remote API integrations by the end of Project 2. This technical path shifted my approach from designing purely aesthetic components to building fully functional, production-ready application architectures.</p>
@@ -598,7 +567,6 @@
             <p><strong>Real-world SDG Impact Assessment:</strong> Aligning the development of JobBridge with SDG 1 (No Poverty) highlighted the profound impact mobile software has on bridging economic gaps. Providing real-time, lightweight infrastructure directly lowers access barriers to vital economic opportunities for vulnerable communities.</p>
         </section>
 
-        <!-- 5. Skills & Tech Stack Section -->
         <section id="skills">
             <h2>5. Skills & Tech Stack</h2>
             <p style="margin-bottom: 24px;">Technologies, frameworks, architectural environments, and utility systems I am confident in handling:</p>
@@ -614,7 +582,6 @@
             </div>
         </section>
 
-        <!-- 6. Resources & References Section -->
         <section id="resources">
             <h2>6. Resources & References</h2>
             <ul>
