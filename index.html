@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student e-Portfolio | Mobile Application Development</title>
+    <title>YONG KAI HAN | Mobile Application Development e-Portfolio</title>
     <style>
         :root {
             --primary-color: #2563eb;
@@ -13,7 +13,7 @@
             --text-main: #1e293b;
             --text-muted: #64748b;
             --border-color: #e2e8f0;
-            --accent-color: #10b981;
+            --accent-color: #e11d48; /* Crimson accent for SDG 1 */
         }
 
         * {
@@ -126,7 +126,7 @@
                 grid-template-columns: 1fr;
             }
             .nav-links {
-                display: none; /* Simplification for mobile presentation */
+                display: none;
             }
         }
 
@@ -279,7 +279,7 @@
         }
 
         .reflection-box {
-            background-color: #f0fdf4;
+            background-color: #fdf2f2;
             border-left: 4px solid var(--accent-color);
             padding: 15px;
             border-radius: 0 6px 6px 0;
@@ -290,9 +290,10 @@
 </head>
 <body>
 
+    <!-- Sticky Navigation (Ensures <=2 clicks accessibility) -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="nav-logo">MAD e-Portfolio</a>
+            <a href="#" class="nav-logo">YONG KAI HAN's MAD Portfolio</a>
             <ul class="nav-links">
                 <li><a href="#profile">Profile</a></li>
                 <li><a href="#labs">Lab Submissions</a></li>
@@ -306,15 +307,16 @@
 
     <div class="container">
 
+        <!-- 1. Student Profile Section -->
         <section id="profile">
             <h2>1. Student Profile</h2>
             <div class="profile-grid">
                 <div class="meta-info">
                     <table>
-                        <tr><td>Name:</td><td>[Your Full Name]</td></tr>
-                        <tr><td>Matric No:</td><td>[Your Matric Number]</td></tr>
-                        <tr><td>Programme:</td><td>[Your Programme, e.g., Bachelor of Computer Science]</td></tr>
-                        <tr><td>Instructor:</td><td>[Instructor's Name]</td></tr>
+                        <tr><td>Name:</td><td>YONG KAI HAN</td></tr>
+                        <tr><td>Matric No:</td><td>A220988</td></tr>
+                        <tr><td>Programme:</td><td>2DipSE</td></tr>
+                        <tr><td>Instructor:</td><td>Mr Nelson Sana</td></tr>
                     </table>
                 </div>
                 <div>
@@ -322,16 +324,18 @@
                     <p>[Write a concise paragraph detailing who you are, your passion for mobile application development, and what you intended to get out of this coursework.]</p>
                     
                     <h3>Targeted Sustainable Development Goal (SDG)</h3>
-                    <div class="sdg-badge">SDG [X]: [Name of Goal]</div>
-                    <p><strong>Statement:</strong> "[Provide your clear, impactful one-line statement linking your app outputs to this SDG goal]"</p>
+                    <div class="sdg-badge">SDG 1: No Poverty (JobBridge)</div>
+                    <p><strong>Statement:</strong> "JobBridge serves as an integrated social safety net management ecosystem designed to reduce poverty indicators by seamlessly bridging vulnerable communities with sustainable employment opportunities."</p>
                 </div>
             </div>
         </section>
 
+        <!-- 2. Lab Submissions Section -->
         <section id="labs">
             <h2>2. Lab Submissions</h2>
             <div class="labs-grid">
                 
+                <!-- Lab 1 -->
                 <div class="card">
                     <div>
                         <h3>Lab 1 — UI Development</h3>
@@ -339,17 +343,18 @@
                             <span>[Screenshot: Main UI Layout]</span>
                         </div>
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/boII6zEZxXY" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <div class="reflection-box">
                             <strong>Reflection:</strong> Learned the basics of view composition, layout hierarchies, and configuring structural constraints for adaptive viewports.
                         </div>
-                        <a href="https://youtube.com" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
+                        <a href="https://youtu.be/boII6zEZxXY" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
                     </div>
                 </div>
 
+                <!-- Lab 2 -->
                 <div class="card">
                     <div>
                         <h3>Lab 2 — Interaction</h3>
@@ -357,17 +362,18 @@
                             <span>[Screenshot: Interaction Architecture]</span>
                         </div>
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/m72XOmtAS_E" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <div class="reflection-box">
                             <strong>Reflection:</strong> Managed event listeners, functional user state adjustments, and localized validation constraints on component interactive nodes.
                         </div>
-                        <a href="https://youtube.com" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
+                        <a href="https://youtu.be/m72XOmtAS_E" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
                     </div>
                 </div>
 
+                <!-- Lab 3 -->
                 <div class="card">
                     <div>
                         <h3>Lab 3 — Material Design</h3>
@@ -375,17 +381,18 @@
                             <span>[Screenshot: Material Design System]</span>
                         </div>
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/XJGdbslmDHQ" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <div class="reflection-box">
                             <strong>Reflection:</strong> Applied standard Material themes, standardized cards, colors, typography tokens, and elevated surfaces for user aesthetic consistency.
                         </div>
-                        <a href="https://youtube.com" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
+                        <a href="https://youtu.be/XJGdbslmDHQ" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
                     </div>
                 </div>
 
+                <!-- Lab 4 -->
                 <div class="card">
                     <div>
                         <h3>Lab 4 — Navigation</h3>
@@ -393,17 +400,18 @@
                             <span>[Screenshot: App Target Routing Graph]</span>
                         </div>
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/K9h598LblOg" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <div class="reflection-box">
                             <strong>Reflection:</strong> Implemented safe-args passing protocols, bottom navigation tabs, drawer assemblies, and a deeply nested component navigation graph ecosystem.
                         </div>
-                        <a href="https://youtube.com" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
+                        <a href="https://youtu.be/K9h598LblOg" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
                     </div>
                 </div>
 
+                <!-- Lab 5 -->
                 <div class="card">
                     <div>
                         <h3>Lab 5 — Room Local DB</h3>
@@ -411,23 +419,25 @@
                             <span>[Screenshot: Room Database Execution]</span>
                         </div>
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/QpAc8Yg5vAE" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <div class="reflection-box">
                             <strong>Reflection:</strong> Architected local persistence layers utilizing SQLite abstractions, DAOs, abstract entities, and background thread updates.
                         </div>
-                        <a href="https://youtube.com" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
+                        <a href="https://youtu.be/QpAc8Yg5vAE" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
                     </div>
                 </div>
 
             </div>
         </section>
 
+        <!-- 3. Project Submissions Section -->
         <section id="projects">
             <h2>3. Project Submissions</h2>
             
+            <!-- Project 1 -->
             <div class="project-block">
                 <h3>Project 1 (Lab 4 Foundations + Functional Upgrades)</h3>
                 <p><strong>Problem Statement:</strong> [Describe the core structural user-problem or context constraint your app aims to target or solve here.]</p>
@@ -435,43 +445,48 @@
                 <div style="max-width: 600px; margin: 20px 0;">
                     <p><strong>Video Submission Record (VSR):</strong></p>
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/j32Xx1LRHeU" allowfullscreen></iframe>
                     </div>
                 </div>
 
                 <p><strong>Lessons Learned:</strong> [Reflect on major technical adjustments, handling view lifecycle, state serialization over runtime configurations, etc.]</p>
                 
                 <div class="btn-group">
-                    <a href="https://github.com/[yourusername]/[repo-name]" target="_blank" class="btn">View GitHub Repository</a>
+                    <a href="https://github.com/a220988-web/eportfolio" target="_blank" class="btn">View GitHub Repository</a>
+                    <a href="https://youtu.be/j32Xx1LRHeU" target="_blank" class="btn btn-secondary">Watch VSR on YouTube</a>
                 </div>
             </div>
 
+            <!-- Project 2 -->
             <div class="project-block" style="border-left-color: var(--accent-color);">
-                <h3>Project 2 (Lab 5 + 2 Additional Screens + Web API + Hardware Sensors + Cloud Integration)</h3>
-                <p><strong>Problem Statement:</strong> [Describe how you elevated the context problem by tying it up with real-world sensor automation and cross-platform cloud persistence layers.]</p>
+                <h3>Project 2: JobBridge Ecosystem (Lab 5 + Cloud + Sensors + APIs)</h3>
+                <p><strong>Problem Statement:</strong> [Describe how you elevated the context problem by tying it up with real-world sensor automation and cross-platform cloud persistence layers to provide real-time employment support.]</p>
                 
                 <div style="max-width: 600px; margin: 20px 0;">
                     <p><strong>Video Submission Record (VSR):</strong></p>
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/Hok1XjcRHJQ" allowfullscreen></iframe>
                     </div>
                 </div>
 
                 <p><strong>Lessons Learned:</strong> [Reflect heavily on background systems network async tasks, hardware sensor registration routines, handling API exception rules, and sync issues with remote datastores.]</p>
                 
                 <div class="btn-group">
-                    <a href="https://github.com/[yourusername]/[repo-name]" target="_blank" class="btn" style="background-color: var(--accent-color);">View GitHub Repository</a>
+                    <a href="https://github.com/a220988-web/eportfolio" target="_blank" class="btn" style="background-color: var(--accent-color);">View GitHub Repository</a>
+                    <a href="https://youtu.be/Hok1XjcRHJQ" target="_blank" class="btn btn-secondary">Watch VSR on YouTube</a>
                 </div>
             </div>
         </section>
 
+        <!-- 4. Reflection & Learning Journey Section -->
         <section id="reflection">
             <h2>4. Reflection & Learning Journey</h2>
             <p><strong>Growth Arc (Lab 1 to Project 2):</strong> [Write a deep analysis detailing how your design capabilities evolved from simple pixel arrangement to building full-stack cloud and hardware integrated applications.]</p>
             <p><strong>Overcoming Core Technical Challenges:</strong> [Explain 2-3 specific technical friction blocks you encountered—e.g., handling asymmetric API payload exceptions, data streams lifecycle leaks, or sensor data noisy inputs—and how you resolved them.]</p>
-            <p><strong>Real-world SDG Impact Assessment:</strong> [Reflect thoroughly on how modern mobile technologies act as structural infrastructure enablers to address the specific SDG metrics you introduced within your system profiles.]</p>
+            <p><strong>Real-world SDG Impact Assessment:</strong> Reflecting on SDG 1 (No Poverty), building JobBridge highlighted how modern mobile infrastructure serves as a direct pipeline for financial inclusion, resource transparency, and accessible employment pathways for marginalized demographic brackets.</p>
         </section>
 
+        <!-- 5. Skills & Tech Stack Section -->
         <section id="skills">
             <h2>5. Skills & Tech Stack</h2>
             <p style="margin-bottom: 20px;">Technologies, frameworks, architectural environments, and utility systems I am confident in handling:</p>
@@ -487,6 +502,7 @@
             </div>
         </section>
 
+        <!-- 6. Resources & References Section -->
         <section id="resources">
             <h2>6. Resources & References</h2>
             <ul>
