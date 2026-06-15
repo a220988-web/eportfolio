@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student e-Portfolio | Mobile Application Development</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --accent-color: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Layout Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Sections */
+        section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            scroll-margin-top: 90px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            font-size: 1.3rem;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        /* Profile Section Details */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none; /* Simplification for mobile presentation */
+            }
+        }
+
+        .meta-info table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .meta-info td {
+            padding: 10px 5px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .meta-info td:first-child {
+            font-weight: 600;
+            color: var(--text-muted);
+            width: 35%;
+        }
+
+        .sdg-badge {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        /* Grid Layout for Labs */
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Media Elements */
+        .media-placeholder {
+            background-color: #e2e8f0;
+            border-radius: 6px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            overflow: hidden;
+            border: 1px dashed var(--text-muted);
+        }
+
+        .media-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            text-align: center;
+            transition: background-color 0.2s;
+            margin-top: auto;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background-color: #475569;
+        }
+        .btn-secondary:hover {
+            background-color: #334155;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        /* Project Section Styling */
+        .project-block {
+            background: var(--bg-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        /* Skills Badges */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+        }
+
+        .reflection-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 15px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">MAD e-Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#labs">Lab Submissions</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#reflection">Reflection</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <section id="profile">
+            <h2>1. Student Profile</h2>
+            <div class="profile-grid">
+                <div class="meta-info">
+                    <table>
+                        <tr><td>Name:</td><td>[Your Full Name]</td></tr>
+                        <tr><td>Matric No:</td><td>[Your Matric Number]</td></tr>
+                        <tr><td>Programme:</td><td>[Your Programme, e.g., Bachelor of Computer Science]</td></tr>
+                        <tr><td>Instructor:</td><td>[Instructor's Name]</td></tr>
+                    </table>
+                </div>
+                <div>
+                    <h3>Introduction & Learning Goals</h3>
+                    <p>[Write a concise paragraph detailing who you are, your passion for mobile application development, and what you intended to get out of this coursework.]</p>
+                    
+                    <h3>Targeted Sustainable Development Goal (SDG)</h3>
+                    <div class="sdg-badge">SDG [X]: [Name of Goal]</div>
+                    <p><strong>Statement:</strong> "[Provide your clear, impactful one-line statement linking your app outputs to this SDG goal]"</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="labs">
+            <h2>2. Lab Submissions</h2>
+            <div class="labs-grid">
+                
+                <div class="card">
+                    <div>
+                        <h3>Lab 1 — UI Development</h3>
+                        <div class="media-placeholder">
+                            <span>[Screenshot: Main UI Layout]</span>
+                        </div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="reflection-box">
+                            <strong>Reflection:</strong> Learned the basics of view composition, layout hierarchies, and configuring structural constraints for adaptive viewports.
+                        </div>
+                        <a href="https://youtube.com" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Lab 2 — Interaction</h3>
+                        <div class="media-placeholder">
+                            <span>[Screenshot: Interaction Architecture]</span>
+                        </div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="reflection-box">
+                            <strong>Reflection:</strong> Managed event listeners, functional user state adjustments, and localized validation constraints on component interactive nodes.
+                        </div>
+                        <a href="https://youtube.com" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Lab 3 — Material Design</h3>
+                        <div class="media-placeholder">
+                            <span>[Screenshot: Material Design System]</span>
+                        </div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="reflection-box">
+                            <strong>Reflection:</strong> Applied standard Material themes, standardized cards, colors, typography tokens, and elevated surfaces for user aesthetic consistency.
+                        </div>
+                        <a href="https://youtube.com" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Lab 4 — Navigation</h3>
+                        <div class="media-placeholder">
+                            <span>[Screenshot: App Target Routing Graph]</span>
+                        </div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="reflection-box">
+                            <strong>Reflection:</strong> Implemented safe-args passing protocols, bottom navigation tabs, drawer assemblies, and a deeply nested component navigation graph ecosystem.
+                        </div>
+                        <a href="https://youtube.com" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Lab 5 — Room Local DB</h3>
+                        <div class="media-placeholder">
+                            <span>[Screenshot: Room Database Execution]</span>
+                        </div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="reflection-box">
+                            <strong>Reflection:</strong> Architected local persistence layers utilizing SQLite abstractions, DAOs, abstract entities, and background thread updates.
+                        </div>
+                        <a href="https://youtube.com" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>3. Project Submissions</h2>
+            
+            <div class="project-block">
+                <h3>Project 1 (Lab 4 Foundations + Functional Upgrades)</h3>
+                <p><strong>Problem Statement:</strong> [Describe the core structural user-problem or context constraint your app aims to target or solve here.]</p>
+                
+                <div style="max-width: 600px; margin: 20px 0;">
+                    <p><strong>Video Submission Record (VSR):</strong></p>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <p><strong>Lessons Learned:</strong> [Reflect on major technical adjustments, handling view lifecycle, state serialization over runtime configurations, etc.]</p>
+                
+                <div class="btn-group">
+                    <a href="https://github.com/[yourusername]/[repo-name]" target="_blank" class="btn">View GitHub Repository</a>
+                </div>
+            </div>
+
+            <div class="project-block" style="border-left-color: var(--accent-color);">
+                <h3>Project 2 (Lab 5 + 2 Additional Screens + Web API + Hardware Sensors + Cloud Integration)</h3>
+                <p><strong>Problem Statement:</strong> [Describe how you elevated the context problem by tying it up with real-world sensor automation and cross-platform cloud persistence layers.]</p>
+                
+                <div style="max-width: 600px; margin: 20px 0;">
+                    <p><strong>Video Submission Record (VSR):</strong></p>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <p><strong>Lessons Learned:</strong> [Reflect heavily on background systems network async tasks, hardware sensor registration routines, handling API exception rules, and sync issues with remote datastores.]</p>
+                
+                <div class="btn-group">
+                    <a href="https://github.com/[yourusername]/[repo-name]" target="_blank" class="btn" style="background-color: var(--accent-color);">View GitHub Repository</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="reflection">
+            <h2>4. Reflection & Learning Journey</h2>
+            <p><strong>Growth Arc (Lab 1 to Project 2):</strong> [Write a deep analysis detailing how your design capabilities evolved from simple pixel arrangement to building full-stack cloud and hardware integrated applications.]</p>
+            <p><strong>Overcoming Core Technical Challenges:</strong> [Explain 2-3 specific technical friction blocks you encountered—e.g., handling asymmetric API payload exceptions, data streams lifecycle leaks, or sensor data noisy inputs—and how you resolved them.]</p>
+            <p><strong>Real-world SDG Impact Assessment:</strong> [Reflect thoroughly on how modern mobile technologies act as structural infrastructure enablers to address the specific SDG metrics you introduced within your system profiles.]</p>
+        </section>
+
+        <section id="skills">
+            <h2>5. Skills & Tech Stack</h2>
+            <p style="margin-bottom: 20px;">Technologies, frameworks, architectural environments, and utility systems I am confident in handling:</p>
+            <div class="skills-container">
+                <span class="skill-tag">Android Studio / SDK</span>
+                <span class="skill-tag">Kotlin / Java</span>
+                <span class="skill-tag">Jetpack Compose / XML Layouts</span>
+                <span class="skill-tag">Room Persistence API</span>
+                <span class="skill-tag">RESTful APIs & Retrofit</span>
+                <span class="skill-tag">Hardware Sensor Frameworks</span>
+                <span class="skill-tag">Firebase Cloud Firestore / Realtime DB</span>
+                <span class="skill-tag">Git / GitHub Versioning</span>
+            </div>
+        </section>
+
+        <section id="resources">
+            <h2>6. Resources & References</h2>
+            <ul>
+                <li>[API Provider Name] — Endpoints documentation utilized for web asynchronous service connections (<a href="#" target="_blank">Link</a>)</li>
+                <li>Android Developer Documentation — Official Android guidelines for UI, Sensors, and Data Persistence guidelines (<a href="https://developer.android.com" target="_blank">Link</a>)</li>
+                <li>[Any third-party UI components/dependencies added inside your build.gradle setups]</li>
+                <li><strong>AI Assistance Acknowledgement:</strong> Formulated structured boilerplate components, refined aesthetic theme configurations, and optimized system navigation layers with help from generative AI assistance tools.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 | Mobile Application Development e-Portfolio. Created for Project 2 evaluation.</p>
+    </footer>
+
+</body>
+</html>
