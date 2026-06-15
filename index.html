@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YONG KAI HAN | Mobile Application Development e-Portfolio</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-color: #2563eb;
-            --primary-hover: #1d4ed8;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --accent-color: #e11d48; /* Crimson accent for SDG 1 */
+            --primary: #2563eb;
+            --primary-light: #eff6ff;
+            --primary-dark: #1d4ed8;
+            --accent: #e11d48; /* Crimson accent for SDG 1 */
+            --accent-light: #fff1f2;
+            --surface-bg: #0f172a; /* Premium Dark Background */
+            --surface-card: #1e293b;
+            --surface-card-hover: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --glow-color: rgba(37, 99, 235, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -23,166 +33,243 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--surface-bg);
             color: var(--text-main);
-            line-height: 1.6;
-            padding-top: 70px;
+            line-height: 1.7;
+            padding-top: 80px;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Navigation Bar */
+        h1, h2, h3, .nav-logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-main);
+        }
+
+        /* Modern Frosted Navigation Bar */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: var(--card-bg);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            background-color: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 18px 24px;
         }
 
         .nav-logo {
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--text-main);
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            letter-spacing: -0.025em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo span {
+            color: var(--primary);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 24px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-main);
+            color: var(--text-muted);
             font-weight: 500;
-            transition: color 0.2s;
-            font-size: 0.95rem;
+            transition: var(--transition);
+            font-size: 0.925rem;
+            padding: 6px 12px;
+            border-radius: 8px;
         }
 
         .nav-links a:hover {
-            color: var(--primary-color);
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         /* Layout Main Container */
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 30px 20px;
+            padding: 40px 24px;
         }
 
-        /* Sections */
+        /* Elegant Glassmorphic Sections */
         section {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            background-color: var(--surface-card);
+            border-radius: 16px;
+            padding: 48px;
+            margin-bottom: 48px;
             border: 1px solid var(--border-color);
-            scroll-margin-top: 90px;
+            scroll-margin-top: 110px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        section:hover {
+            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: 0 10px 40px var(--glow-color);
         }
 
         h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-            font-size: 1.8rem;
+            color: var(--text-main);
+            padding-bottom: 16px;
+            margin-bottom: 32px;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
         }
 
         h3 {
-            margin-top: 20px;
-            margin-bottom: 10px;
+            margin-top: 24px;
+            margin-bottom: 12px;
             color: var(--text-main);
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }
 
         p {
-            margin-bottom: 15px;
-            color: var(--text-main);
+            margin-bottom: 18px;
+            color: var(--text-muted);
         }
 
-        /* Profile Section Details */
+        /* Profile Section Layout */
         .profile-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 30px;
+            grid-template-columns: 1fr 1.8fr;
+            gap: 48px;
+            align-items: start;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 968px) {
             .profile-grid {
                 grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            section {
+                padding: 32px;
             }
             .nav-links {
                 display: none;
             }
         }
 
-        .meta-info table {
+        .meta-card {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .meta-table {
             width: 100%;
             border-collapse: collapse;
         }
 
-        .meta-info td {
-            padding: 10px 5px;
-            border-bottom: 1px solid var(--border-color);
+        .meta-table td {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .meta-info td:first-child {
+        .meta-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .meta-table td:first-child {
             font-weight: 600;
             color: var(--text-muted);
             width: 35%;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .meta-table td:last-child {
+            color: var(--text-main);
+            font-weight: 500;
         }
 
         .sdg-badge {
-            display: inline-block;
-            background-color: var(--accent-color);
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--accent);
             color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-weight: bold;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-weight: 600;
             font-size: 0.85rem;
-            margin-bottom: 10px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 14px rgba(225, 29, 72, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
         }
 
         /* Grid Layout for Labs */
         .labs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
         }
 
         .card {
-            background: var(--bg-color);
+            background: rgba(30, 41, 59, 0.5);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
+            border-radius: 14px;
+            padding: 28px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: var(--transition);
         }
 
-        /* Video Elements */
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.15);
+            background: var(--surface-card-hover);
+        }
+
+        /* Cinematic Video Container */
         .video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
-            margin-bottom: 15px;
-            border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .video-container iframe {
@@ -194,89 +281,145 @@
             border: 0;
         }
 
+        /* Refined Modern Buttons */
         .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary);
             color: white;
-            padding: 8px 16px;
+            padding: 10px 20px;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
             text-align: center;
-            transition: background-color 0.2s;
-            margin-top: auto;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
         }
 
         .btn:hover {
-            background-color: var(--primary-hover);
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
         }
 
         .btn-secondary {
-            background-color: #475569;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+            box-shadow: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .btn-secondary:hover {
-            background-color: #334155;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: none;
         }
 
         .btn-group {
             display: flex;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 12px;
+            margin-top: 24px;
         }
 
-        /* Project Section Styling */
+        /* Custom Project Blocks */
         .project-block {
-            background: var(--bg-color);
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-left: 5px solid var(--primary-color);
+            background: rgba(15, 23, 42, 0.3);
+            border-radius: 14px;
+            padding: 36px;
+            margin-bottom: 32px;
+            border: 1px solid var(--border-color);
+            border-left: 6px solid var(--primary);
+            transition: var(--transition);
         }
 
-        /* Skills Badges */
+        .project-block:hover {
+            border-color: var(--border-color);
+            border-left-color: var(--primary-dark);
+            background: rgba(15, 23, 42, 0.5);
+        }
+
+        /* Clean Reflection System box */
+        .reflection-box {
+            background-color: rgba(15, 23, 42, 0.6);
+            border-left: 3px solid var(--primary);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 20px;
+            font-size: 0.925rem;
+            color: var(--text-muted);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Modern Interactive Skill Tags */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
 
         .skill-tag {
-            background-color: #e0f2fe;
-            color: #0369a1;
-            padding: 6px 14px;
-            border-radius: 20px;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: #60a5fa;
+            padding: 8px 16px;
+            border-radius: 30px;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            transition: var(--transition);
         }
 
-        /* Footer */
+        .skill-tag:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Typography & List Refinements */
+        ul {
+            list-style-position: inside;
+            color: var(--text-muted);
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        li a:hover {
+            text-decoration: underline;
+            color: #60a5fa;
+        }
+
+        /* Footer Custom Framework */
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 48px 24px;
             color: var(--text-muted);
             font-size: 0.9rem;
             border-top: 1px solid var(--border-color);
-            background-color: var(--card-bg);
-        }
-
-        .reflection-box {
-            background-color: #fdf2f2;
-            border-left: 4px solid var(--accent-color);
-            padding: 15px;
-            border-radius: 0 6px 6px 0;
-            margin-top: 15px;
-            font-style: italic;
+            background-color: var(--surface-bg);
         }
     </style>
 </head>
 <body>
 
+    <!-- Sticky Navigation Layout -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="nav-logo">YONG KAI HAN's MAD Portfolio</a>
+            <a href="#" class="nav-logo">YONG KAI HAN<span>.MAD</span></a>
             <ul class="nav-links">
                 <li><a href="#profile">Profile</a></li>
-                <li><a href="#labs">Lab Submissions</a></li>
+                <li><a href="#labs">Labs</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#reflection">Reflection</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -287,15 +430,16 @@
 
     <div class="container">
 
+        <!-- 1. Student Profile Section -->
         <section id="profile">
             <h2>1. Student Profile</h2>
             <div class="profile-grid">
-                <div class="meta-info">
-                    <table>
-                        <tr><td>Name:</td><td>YONG KAI HAN</td></tr>
-                        <tr><td>Matric No:</td><td>A220988</td></tr>
-                        <tr><td>Programme:</td><td>2DipSE</td></tr>
-                        <tr><td>Instructor:</td><td>Mr Nelson Sana</td></tr>
+                <div class="meta-card">
+                    <table class="meta-table">
+                        <tr><td>Name</td><td>YONG KAI HAN</td></tr>
+                        <tr><td>Matric No</td><td>A220988</td></tr>
+                        <tr><td>Programme</td><td>2DipSE</td></tr>
+                        <tr><td>Instructor</td><td>Mr Nelson Sana</td></tr>
                     </table>
                 </div>
                 <div>
@@ -304,15 +448,19 @@
                     
                     <h3>Targeted Sustainable Development Goal (SDG)</h3>
                     <div class="sdg-badge">SDG 1: No Poverty (JobBridge)</div>
-                    <p><strong>Statement:</strong> "JobBridge serves as an integrated social safety net management ecosystem designed to reduce poverty indicators by seamlessly bridging vulnerable communities with sustainable employment opportunities."</p>
+                    <p style="font-size: 1.1rem; color: var(--text-main); font-style: italic; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        "JobBridge serves as an integrated social safety net management ecosystem designed to reduce poverty indicators by seamlessly bridging vulnerable communities with sustainable employment opportunities."
+                    </p>
                 </div>
             </div>
         </section>
 
+        <!-- 2. Lab Submissions Section -->
         <section id="labs">
             <h2>2. Lab Submissions</h2>
             <div class="labs-grid">
                 
+                <!-- Lab 1 -->
                 <div class="card">
                     <div>
                         <h3>Lab 1 — UI Development</h3>
@@ -322,12 +470,13 @@
                     </div>
                     <div>
                         <div class="reflection-box">
-                            <strong>Reflection:</strong> Learned the basics of view composition, layout hierarchies, and configuring structural constraints for adaptive viewports.
+                            Learned the basics of view composition, layout hierarchies, and configuring structural constraints for adaptive viewports.
                         </div>
-                        <a href="https://youtu.be/boII6zEZxXY" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
+                        <a href="https://youtu.be/boII6zEZxXY" target="_blank" class="btn btn-secondary" style="display:flex; margin-top:16px; width:100%;">Watch on YouTube</a>
                     </div>
                 </div>
 
+                <!-- Lab 2 -->
                 <div class="card">
                     <div>
                         <h3>Lab 2 — Interaction</h3>
@@ -337,12 +486,13 @@
                     </div>
                     <div>
                         <div class="reflection-box">
-                            <strong>Reflection:</strong> Managed event listeners, functional user state adjustments, and localized validation constraints on component interactive nodes.
+                            Managed event listeners, functional user state adjustments, and localized validation constraints on component interactive nodes.
                         </div>
-                        <a href="https://youtu.be/m72XOmtAS_E" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
+                        <a href="https://youtu.be/m72XOmtAS_E" target="_blank" class="btn btn-secondary" style="display:flex; margin-top:16px; width:100%;">Watch on YouTube</a>
                     </div>
                 </div>
 
+                <!-- Lab 3 -->
                 <div class="card">
                     <div>
                         <h3>Lab 3 — Material Design</h3>
@@ -352,12 +502,13 @@
                     </div>
                     <div>
                         <div class="reflection-box">
-                            <strong>Reflection:</strong> Applied standard Material themes, standardized cards, colors, typography tokens, and elevated surfaces for user aesthetic consistency.
+                            Applied standard Material themes, standardized cards, colors, typography tokens, and elevated surfaces for user aesthetic consistency.
                         </div>
-                        <a href="https://youtu.be/XJGdbslmDHQ" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
+                        <a href="https://youtu.be/XJGdbslmDHQ" target="_blank" class="btn btn-secondary" style="display:flex; margin-top:16px; width:100%;">Watch on YouTube</a>
                     </div>
                 </div>
 
+                <!-- Lab 4 -->
                 <div class="card">
                     <div>
                         <h3>Lab 4 — Navigation</h3>
@@ -367,12 +518,13 @@
                     </div>
                     <div>
                         <div class="reflection-box">
-                            <strong>Reflection:</strong> Implemented safe-args passing protocols, bottom navigation tabs, drawer assemblies, and a deeply nested component navigation graph ecosystem.
+                            Implemented safe-args passing protocols, bottom navigation tabs, drawer assemblies, and a deeply nested component navigation graph ecosystem.
                         </div>
-                        <a href="https://youtu.be/K9h598LblOg" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
+                        <a href="https://youtu.be/K9h598LblOg" target="_blank" class="btn btn-secondary" style="display:flex; margin-top:16px; width:100%;">Watch on YouTube</a>
                     </div>
                 </div>
 
+                <!-- Lab 5 -->
                 <div class="card">
                     <div>
                         <h3>Lab 5 — Room Local DB</h3>
@@ -382,24 +534,26 @@
                     </div>
                     <div>
                         <div class="reflection-box">
-                            <strong>Reflection:</strong> Architected local persistence layers utilizing SQLite abstractions, DAOs, abstract entities, and background thread updates.
+                            Architected local persistence layers utilizing SQLite abstractions, DAOs, abstract entities, and background thread updates.
                         </div>
-                        <a href="https://youtu.be/QpAc8Yg5vAE" target="_blank" class="btn btn-secondary" style="display:block; margin-top:10px; width:100%;">Watch on YouTube</a>
+                        <a href="https://youtu.be/QpAc8Yg5vAE" target="_blank" class="btn btn-secondary" style="display:flex; margin-top:16px; width:100%;">Watch on YouTube</a>
                     </div>
                 </div>
 
             </div>
         </section>
 
+        <!-- 3. Project Submissions Section -->
         <section id="projects">
             <h2>3. Project Submissions</h2>
             
+            <!-- Project 1 -->
             <div class="project-block">
                 <h3>Project 1 (Lab 4 Foundations + Functional Upgrades)</h3>
                 <p><strong>Problem Statement:</strong> [Describe the core structural user-problem or context constraint your app aims to target or solve here.]</p>
                 
-                <div style="max-width: 600px; margin: 20px 0;">
-                    <p><strong>Video Submission Record (VSR):</strong></p>
+                <div style="max-width: 720px; margin: 24px 0;">
+                    <p style="font-weight: 500; color: var(--text-main);">Video Submission Record (VSR)</p>
                     <div class="video-container">
                         <iframe src="https://www.youtube.com/embed/j32Xx1LRHeU" allowfullscreen></iframe>
                     </div>
@@ -409,16 +563,17 @@
                 
                 <div class="btn-group">
                     <a href="https://github.com/a220988-web/A220988_YONG_Nelson_Project1" target="_blank" class="btn">View GitHub Repository</a>
-                    <a href="https://youtu.be/j32Xx1LRHeU" target="_blank" class="btn btn-secondary">Watch VSR on YouTube</a>
+                    <a href="https://youtu.be/j32Xx1LRHeU" target="_blank" class="btn btn-secondary">Watch VSR</a>
                 </div>
             </div>
 
-            <div class="project-block" style="border-left-color: var(--accent-color);">
+            <!-- Project 2 -->
+            <div class="project-block" style="border-left-color: var(--accent);">
                 <h3>Project 2: JobBridge Ecosystem (Lab 5 + Cloud + Sensors + APIs)</h3>
                 <p><strong>Problem Statement:</strong> [Describe how you elevated the context problem by tying it up with real-world sensor automation and cross-platform cloud persistence layers to provide real-time employment support.]</p>
                 
-                <div style="max-width: 600px; margin: 20px 0;">
-                    <p><strong>Video Submission Record (VSR):</strong></p>
+                <div style="max-width: 720px; margin: 24px 0;">
+                    <p style="font-weight: 500; color: var(--text-main);">Video Submission Record (VSR)</p>
                     <div class="video-container">
                         <iframe src="https://www.youtube.com/embed/Hok1XjcRHJQ" allowfullscreen></iframe>
                     </div>
@@ -427,12 +582,13 @@
                 <p><strong>Lessons Learned:</strong> [Reflect heavily on background systems network async tasks, hardware sensor registration routines, handling API exception rules, and sync issues with remote datastores.]</p>
                 
                 <div class="btn-group">
-                    <a href="https://github.com/a220988-web/A220988_YONG_Nelson_Project2" target="_blank" class="btn" style="background-color: var(--accent-color);">View GitHub Repository</a>
-                    <a href="https://youtu.be/Hok1XjcRHJQ" target="_blank" class="btn btn-secondary">Watch VSR on YouTube</a>
+                    <a href="https://github.com/a220988-web/A220988_YONG_Nelson_Project2" target="_blank" class="btn" style="background-color: var(--accent); box-shadow: 0 4px 14px rgba(225, 29, 72, 0.3);">View GitHub Repository</a>
+                    <a href="https://youtu.be/Hok1XjcRHJQ" target="_blank" class="btn btn-secondary">Watch VSR</a>
                 </div>
             </div>
         </section>
 
+        <!-- 4. Reflection & Learning Journey Section -->
         <section id="reflection">
             <h2>4. Reflection & Learning Journey</h2>
             <p><strong>Growth Arc (Lab 1 to Project 2):</strong> [Write a deep analysis detailing how your design capabilities evolved from simple pixel arrangement to building full-stack cloud and hardware integrated applications.]</p>
@@ -440,9 +596,10 @@
             <p><strong>Real-world SDG Impact Assessment:</strong> Reflecting on SDG 1 (No Poverty), building JobBridge highlighted how modern mobile infrastructure serves as a direct pipeline for financial inclusion, resource transparency, and accessible employment pathways for marginalized demographic brackets.</p>
         </section>
 
+        <!-- 5. Skills & Tech Stack Section -->
         <section id="skills">
             <h2>5. Skills & Tech Stack</h2>
-            <p style="margin-bottom: 20px;">Technologies, frameworks, architectural environments, and utility systems I am confident in handling:</p>
+            <p style="margin-bottom: 24px;">Technologies, frameworks, architectural environments, and utility systems I am confident in handling:</p>
             <div class="skills-container">
                 <span class="skill-tag">Android Studio / SDK</span>
                 <span class="skill-tag">Kotlin / Java</span>
@@ -455,6 +612,7 @@
             </div>
         </section>
 
+        <!-- 6. Resources & References Section -->
         <section id="resources">
             <h2>6. Resources & References</h2>
             <ul>
@@ -468,7 +626,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 | Mobile Application Development e-Portfolio. Created for Project 2 evaluation.</p>
+        <p>&copy; 2026 | Mobile Application Development e-Portfolio.</p>
     </footer>
 
 </body>
