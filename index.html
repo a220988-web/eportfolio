@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YONG KAI HAN | Mobile Application Development e-Portfolio</title>
-    <!-- Google Fonts for Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,408 +11,92 @@
     <style>
         :root {
             --primary: #2563eb;
-            --primary-light: #eff6ff;
             --primary-dark: #1d4ed8;
-            --accent: #e11d48; /* Crimson accent for SDG 1 */
-            --accent-light: #fff1f2;
-            --surface-bg: #0f172a; /* Premium Dark Background */
-            --surface-card: #1e293b;
-            --surface-card-hover: #334155;
+            --accent: #e11d48;
+            --surface-bg: #0f172a;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border-color: #334155;
-            --glow-color: rgba(37, 99, 235, 0.15);
+            --border-color: rgba(255, 255, 255, 0.1);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        /* Animated Gradient Background */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--surface-bg);
+            background: linear-gradient(125deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
             color: var(--text-main);
             line-height: 1.7;
             padding-top: 80px;
-            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            margin: 0;
         }
 
-        h1, h2, h3, .nav-logo {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--text-main);
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* Modern Frosted Navigation Bar */
+        h1, h2, h3, .nav-logo { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        /* Frosted Navbar */
         nav {
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
             background-color: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
-            transition: var(--transition);
         }
 
-        .nav-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 24px;
-        }
+        .nav-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; }
+        .nav-logo { font-weight: 700; color: var(--text-main); text-decoration: none; font-size: 1.25rem; display: flex; align-items: center; gap: 8px; }
+        .nav-logo span { color: var(--primary); }
+        .nav-links { display: flex; list-style: none; gap: 24px; }
+        .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 500; font-size: 0.9rem; padding: 6px 12px; border-radius: 8px; transition: var(--transition); }
+        .nav-links a:hover { color: var(--text-main); background: rgba(255, 255, 255, 0.05); }
 
-        .nav-logo {
-            font-weight: 700;
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 1.25rem;
-            letter-spacing: -0.025em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 40px 24px; }
 
-        .nav-logo span {
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 24px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 500;
-            transition: var(--transition);
-            font-size: 0.925rem;
-            padding: 6px 12px;
-            border-radius: 8px;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-main);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        /* Layout Main Container */
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 40px 24px;
-        }
-
-        /* Elegant Glassmorphic Sections */
+        /* Frosted Glass Sections */
         section {
-            background-color: var(--surface-card);
+            background-color: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 48px;
             margin-bottom: 48px;
-            border: 1px solid var(--border-color);
-            scroll-margin-top: 110px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
         }
 
-        section:hover {
-            border-color: rgba(37, 99, 235, 0.3);
-            box-shadow: 0 10px 40px var(--glow-color);
-        }
+        h2 { font-size: 2rem; margin-bottom: 32px; border-bottom: 3px solid var(--primary); display: inline-block; padding-bottom: 5px; }
 
-        h2 {
-            color: var(--text-main);
-            padding-bottom: 16px;
-            margin-bottom: 32px;
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            position: relative;
-            display: inline-block;
-        }
+        .profile-grid { display: grid; grid-template-columns: 1fr 1.8fr; gap: 48px; }
+        .meta-card { background: rgba(15, 23, 42, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; }
+        .meta-table { width: 100%; border-collapse: collapse; }
+        .meta-table td { padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); color: var(--text-muted); }
+        
+        .sdg-badge { background-color: var(--accent); color: white; padding: 6px 16px; border-radius: 30px; font-weight: 600; font-size: 0.85rem; display: inline-block; margin-bottom: 16px; }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
+        .labs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; }
+        .card { background: rgba(30, 41, 59, 0.5); border: 1px solid var(--border-color); border-radius: 14px; padding: 28px; }
+        
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 20px 0; border-radius: 10px; }
+        .video-container iframe { position: absolute; width: 100%; height: 100%; border: 0; }
 
-        h3 {
-            margin-top: 24px;
-            margin-bottom: 12px;
-            color: var(--text-main);
-            font-size: 1.4rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        p {
-            margin-bottom: 18px;
-            color: var(--text-muted);
-        }
-
-        /* Profile Section Layout */
-        .profile-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.8fr;
-            gap: 48px;
-            align-items: start;
-        }
-
-        @media (max-width: 968px) {
-            .profile-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-            section {
-                padding: 32px;
-            }
-            .nav-links {
-                display: none;
-            }
-        }
-
-        .meta-card {
-            background: rgba(15, 23, 42, 0.4);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 24px;
-        }
-
-        .meta-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .meta-table td {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .meta-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .meta-table td:first-child {
-            font-weight: 600;
-            color: var(--text-muted);
-            width: 35%;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .meta-table td:last-child {
-            color: var(--text-main);
-            font-weight: 500;
-        }
-
-        .sdg-badge {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--accent);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            margin-bottom: 16px;
-            box-shadow: 0 4px 14px rgba(225, 29, 72, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-        }
-
-        /* Grid Layout for Labs */
-        .labs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 32px;
-        }
-
-        .card {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 28px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: var(--transition);
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.15);
-            background: var(--surface-card-hover);
-        }
-
-        /* Cinematic Video Container */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* Refined Modern Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--primary);
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-align: center;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
-        }
-
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
-        }
-
-        .btn-secondary {
-            background-color: rgba(255, 255, 255, 0.08);
-            color: var(--text-main);
-            box-shadow: none;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: none;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 12px;
-            margin-top: 24px;
-        }
-
-        /* Custom Project Blocks */
-        .project-block {
-            background: rgba(15, 23, 42, 0.3);
-            border-radius: 14px;
-            padding: 36px;
-            margin-bottom: 32px;
-            border: 1px solid var(--border-color);
-            border-left: 6px solid var(--primary);
-            transition: var(--transition);
-        }
-
-        .project-block:hover {
-            border-color: var(--border-color);
-            border-left-color: var(--primary-dark);
-            background: rgba(15, 23, 42, 0.5);
-        }
-
-        /* Clean Reflection System box */
-        .reflection-box {
-            background-color: rgba(15, 23, 42, 0.6);
-            border-left: 3px solid var(--primary);
-            padding: 16px 20px;
-            border-radius: 0 8px 8px 0;
-            margin-top: 20px;
-            font-size: 0.925rem;
-            color: var(--text-muted);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Modern Interactive Skill Tags */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .skill-tag {
-            background-color: rgba(37, 99, 235, 0.1);
-            color: #60a5fa;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-weight: 500;
-            font-size: 0.875rem;
-            border: 1px solid rgba(37, 99, 235, 0.2);
-            transition: var(--transition);
-        }
-
-        .skill-tag:hover {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        /* Typography & List Refinements */
-        ul {
-            list-style-position: inside;
-            color: var(--text-muted);
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        li a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        li a:hover {
-            text-decoration: underline;
-            color: #60a5fa;
-        }
-
-        /* Footer Custom Framework */
-        footer {
-            text-align: center;
-            padding: 48px 24px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border-color);
-            background-color: var(--surface-bg);
-        }
+        .btn { display: inline-flex; align-items: center; background-color: var(--primary); color: white; padding: 10px 20px; text-decoration: none; border-radius: 8px; font-weight: 600; margin-top: 15px; }
+        .project-block { background: rgba(15, 23, 42, 0.3); border-radius: 14px; padding: 36px; margin-bottom: 32px; border-left: 6px solid var(--primary); }
+        
+        .skill-tag { background-color: rgba(37, 99, 235, 0.1); color: #60a5fa; padding: 8px 16px; border-radius: 30px; display: inline-block; margin: 5px; font-size: 0.875rem; }
+        
+        footer { text-align: center; padding: 48px; color: var(--text-muted); border-top: 1px solid var(--border-color); }
     </style>
 </head>
 <body>
 
-    <!-- Sticky Navigation Layout -->
     <nav>
         <div class="nav-container">
             <a href="#" class="nav-logo">YONG KAI HAN<span>.MAD</span></a>
@@ -423,14 +106,11 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#reflection">Reflection</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#resources">Resources</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
-
-        <!-- 1. Student Profile Section -->
         <section id="profile">
             <h2>1. Student Profile</h2>
             <div class="profile-grid">
@@ -443,193 +123,51 @@
                     </table>
                 </div>
                 <div>
-                    <h3>Introduction & Learning Goals</h3>
-                    <p>
-                        I am <strong>YONG KAI HAN (A220988)</strong>, a software engineering student specializing in modern full-stack development and mobile architecture. Throughout this course, my objective was to master native Android development patterns using Kotlin and Jetpack Compose. By transitioning from basic structural views into reactive multi-layered systems, I focused on building modular code frameworks that scale seamlessly. My ultimate ambition is to design lightweight, high-performance applications that deliver powerful user experiences while resolving real-world problems.
-                    </p>
-                    
-                    <h3>Targeted Sustainable Development Goal (SDG)</h3>
+                    <h3>Introduction</h3>
+                    <p>I am <strong>YONG KAI HAN (A220988)</strong>, a software engineering student specializing in modern full-stack development and mobile architecture. I focus on building modular, high-performance applications using Kotlin and Jetpack Compose.</p>
                     <div class="sdg-badge">SDG 1: No Poverty (JobBridge)</div>
-                    <p style="font-size: 1.1rem; color: var(--text-main); font-style: italic; font-family: 'Plus Jakarta Sans', sans-serif;">
-                        "JobBridge serves as an integrated social safety net management ecosystem designed to reduce poverty indicators by seamlessly bridging vulnerable communities with sustainable employment opportunities."
-                    </p>
+                    <p><em>"JobBridge is an integrated ecosystem designed to reduce poverty by bridging vulnerable communities with sustainable employment."</em></p>
                 </div>
             </div>
         </section>
 
-        <!-- 2. Lab Submissions Section -->
         <section id="labs">
             <h2>2. Lab Submissions</h2>
             <div class="labs-grid">
-                
-                <!-- Lab 1 -->
                 <div class="card">
-                    <div>
-                        <h3>Lab 1 — UI Development</h3>
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/boII6zEZxXY" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="reflection-box">
-                            Learned the basics of view composition, layout hierarchies, and configuring structural constraints for adaptive viewports.
-                        </div>
-                        <a href="https://youtu.be/boII6zEZxXY" target="_blank" class="btn btn-secondary" style="display:flex; margin-top:16px; width:100%;">Watch on YouTube</a>
-                    </div>
+                    <h3>Lab 1 — UI Development</h3>
+                    <div class="video-container"><iframe src="https://www.youtube.com/embed/boII6zEZxXY" allowfullscreen></iframe></div>
+                    <a href="https://youtu.be/boII6zEZxXY" class="btn" style="background: rgba(255,255,255,0.1);">Watch on YouTube</a>
                 </div>
-
-                <!-- Lab 2 -->
-                <div class="card">
-                    <div>
-                        <h3>Lab 2 — Interaction</h3>
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/m72XOmtAS_E" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="reflection-box">
-                            Managed event listeners, functional user state adjustments, and localized validation constraints on component interactive nodes.
-                        </div>
-                        <a href="https://youtu.be/m72XOmtAS_E" target="_blank" class="btn btn-secondary" style="display:flex; margin-top:16px; width:100%;">Watch on YouTube</a>
-                    </div>
-                </div>
-
-                <!-- Lab 3 -->
-                <div class="card">
-                    <div>
-                        <h3>Lab 3 — Material Design</h3>
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/XJGdbslmDHQ" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="reflection-box">
-                            Applied standard Material themes, standardized cards, colors, typography tokens, and elevated surfaces for user aesthetic consistency.
-                        </div>
-                        <a href="https://youtu.be/XJGdbslmDHQ" target="_blank" class="btn btn-secondary" style="display:flex; margin-top:16px; width:100%;">Watch on YouTube</a>
-                    </div>
-                </div>
-
-                <!-- Lab 4 -->
-                <div class="card">
-                    <div>
-                        <h3>Lab 4 — Navigation</h3>
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/K9h598LblOg" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="reflection-box">
-                            Implemented safe-args passing protocols, bottom navigation tabs, drawer assemblies, and a deeply nested component navigation graph ecosystem.
-                        </div>
-                        <a href="https://youtu.be/K9h598LblOg" target="_blank" class="btn btn-secondary" style="display:flex; margin-top:16px; width:100%;">Watch on YouTube</a>
-                    </div>
-                </div>
-
-                <!-- Lab 5 -->
-                <div class="card">
-                    <div>
-                        <h3>Lab 5 — Room Local DB</h3>
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/QpAc8Yg5vAE" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="reflection-box">
-                            Architected local persistence layers utilizing SQLite abstractions, DAOs, abstract entities, and background thread updates.
-                        </div>
-                        <a href="https://youtu.be/QpAc8Yg5vAE" target="_blank" class="btn btn-secondary" style="display:flex; margin-top:16px; width:100%;">Watch on YouTube</a>
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <!-- 3. Project Submissions Section -->
         <section id="projects">
             <h2>3. Project Submissions</h2>
-            
-            <!-- Project 1 -->
             <div class="project-block">
-                <h3>Project 1 (Lab 4 Foundations + Functional Upgrades)</h3>
-                <p><strong>Problem Statement:</strong> Traditional employment frameworks lack immediate offline-first flexibility and robust screen flow synchronization, which creates structural friction for users looking for clean, reliable navigation paths while assessing employment profiles or processing application criteria on the move.</p>
-                
-                <div style="max-width: 720px; margin: 24px 0;">
-                    <p style="font-weight: 500; color: var(--text-main);">Video Submission Record (VSR)</p>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/j32Xx1LRHeU" allowfullscreen></iframe>
-                    </div>
-                </div>
-
-                <p><strong>Lessons Learned:</strong> This phase consolidated my understanding of lifecycle-aware state management. I managed backstack operations, argument parcelables, and screen state saving techniques to prevent data loss across configuration variations and runtime device rotations.</p>
-                
-                <div class="btn-group">
-                    <a href="https://github.com/a220988-web/A220988_YONG_Nelson_Project1" target="_blank" class="btn">View GitHub Repository</a>
-                    <a href="https://youtu.be/j32Xx1LRHeU" target="_blank" class="btn btn-secondary">Watch VSR</a>
-                </div>
+                <h3>Project 1: Foundations</h3>
+                <p>Focused on lifecycle-aware navigation and modular screen architectures.</p>
+                <a href="https://github.com/a220988-web/A220988_YONG_Nelson_Project1" class="btn">GitHub Repo</a>
             </div>
-
-            <!-- Project 2 -->
             <div class="project-block" style="border-left-color: var(--accent);">
-                <h3>Project 2: JobBridge Ecosystem (Lab 5 + Cloud + Sensors + APIs)</h3>
-                <p><strong>Problem Statement:</strong> Economically marginalized individuals face structural barriers when looking for low-threshold employment. JobBridge resolves this challenge by connecting users with active community jobs, leveraging hardware sensor automations for ease of access, and utilizing real-time cloud data layers to match available skills with local work openings immediately.</p>
-                
-                <div style="max-width: 720px; margin: 24px 0;">
-                    <p style="font-weight: 500; color: var(--text-main);">Video Submission Record (VSR)</p>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/Hok1XjcRHJQ" allowfullscreen></iframe>
-                    </div>
-                </div>
-
-                <p><strong>Lessons Learned:</strong> Integrating Room data layers with remote cloud instances required robust asynchronous handling. Overcoming network communication blocks and orchestrating smooth hardware sensor tracking callbacks taught me how to manage threading layers and handle edge-case runtime exceptions efficiently.</p>
-                
-                <div class="btn-group">
-                    <a href="https://github.com/a220988-web/A220988_YONG_Nelson_Project2" target="_blank" class="btn" style="background-color: var(--accent); box-shadow: 0 4px 14px rgba(225, 29, 72, 0.3);">View GitHub Repository</a>
-                    <a href="https://youtu.be/Hok1XjcRHJQ" target="_blank" class="btn btn-secondary">Watch VSR</a>
-                </div>
+                <h3>Project 2: JobBridge Ecosystem</h3>
+                <p>Cloud-integrated employment platform utilizing Room, Firestore, and hardware sensors.</p>
+                <a href="https://github.com/a220988-web/A220988_YONG_Nelson_Project2" class="btn" style="background: var(--accent);">GitHub Repo</a>
             </div>
         </section>
 
-        <!-- 4. Reflection & Learning Journey Section -->
-        <section id="reflection">
-            <h2>4. Reflection & Learning Journey</h2>
-            <p><strong>Growth Arc (Lab 1 to Project 2):</strong> My engineering methodology progressed dramatically from simple UI element grouping in Lab 1 into designing deep local data layers and asynchronous remote API integrations by the end of Project 2. This technical path shifted my approach from designing purely aesthetic components to building fully functional, production-ready application architectures.</p>
-            <p><strong>Overcoming Core Technical Challenges:</strong> The most significant development hurdle centered on managing relational entity sync loops between local Room databases and remote cloud datastores. I engineered explicit network boundary callbacks to reconcile data states without locking the primary user thread. Additionally, smoothing out volatile hardware sensor readings required building custom noise-filtering logic to ensure a stable user experience.</p>
-            <p><strong>Real-world SDG Impact Assessment:</strong> Aligning the development of JobBridge with SDG 1 (No Poverty) highlighted the profound impact mobile software has on bridging economic gaps. Providing real-time, lightweight infrastructure directly lowers access barriers to vital economic opportunities for vulnerable communities.</p>
-        </section>
-
-        <!-- 5. Skills & Tech Stack Section -->
         <section id="skills">
-            <h2>5. Skills & Tech Stack</h2>
-            <p style="margin-bottom: 24px;">Technologies, frameworks, architectural environments, and utility systems I am confident in handling:</p>
+            <h2>5. Skills</h2>
             <div class="skills-container">
-                <span class="skill-tag">Android Studio / SDK</span>
-                <span class="skill-tag">Kotlin / Java</span>
-                <span class="skill-tag">Jetpack Compose / XML Layouts</span>
-                <span class="skill-tag">Room Persistence API</span>
-                <span class="skill-tag">RESTful APIs & Retrofit</span>
-                <span class="skill-tag">Hardware Sensor Frameworks</span>
-                <span class="skill-tag">Firebase Cloud Firestore / Realtime DB</span>
-                <span class="skill-tag">Git / GitHub Versioning</span>
+                <span class="skill-tag">Kotlin/Java</span>
+                <span class="skill-tag">Jetpack Compose</span>
+                <span class="skill-tag">Room DB</span>
+                <span class="skill-tag">Firebase</span>
+                <span class="skill-tag">Retrofit</span>
             </div>
         </section>
-
-        <!-- 6. Resources & References Section -->
-        <section id="resources">
-            <h2>6. Resources & References</h2>
-            <ul>
-                <li>Firebase Engine Documentation — Web services synchronization schemas and connection protocols (<a href="https://firebase.google.com/docs" target="_blank">Link</a>)</li>
-                <li>Android Developer Documentation — Official Android guidelines for UI, Sensors, and Data Persistence (<a href="https://developer.android.com" target="_blank">Link</a>)</li>
-                <li>Jetpack Jetpack Compose API Reference — Structural token specifications and view lifecycle maps</li>
-                <li><strong>AI Assistance Acknowledgement:</strong> Formulated structured boilerplate components, refined aesthetic theme configurations, and optimized system navigation layers with help from generative AI assistance tools.</li>
-            </ul>
-        </section>
-
     </div>
 
-    <footer>
-        <p>&copy; 2026 | Mobile Application Development e-Portfolio.</p>
-    </footer>
-
+    <footer><p>&copy; 2026 | Mobile Application Development e-Portfolio.</p></footer>
 </body>
 </html>
